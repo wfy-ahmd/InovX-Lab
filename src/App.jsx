@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navbar } from './components/Navbar';
 import { SplineSceneBasic } from './components/SplineSceneBasic';
 import { About } from './components/About';
 import { Services } from './components/Services';
@@ -9,17 +10,10 @@ import { Footer } from './components/Footer';
 export function App() {
   return (
     <div className="bg-black text-neutral-50 min-h-screen w-full overflow-x-hidden">
-      {/* Logo - Top Left Corner */}
-      <div className="fixed top-6 left-6 z-50">
-        <img
-          src="/assets/logo.png"
-          alt="InovX-Lab"
-          className="h-12 w-auto object-contain"
-        />
-      </div>
+      <Navbar />
 
       <main>
-        <section id="hero" className="min-h-screen w-full flex items-center justify-center p-6">
+        <section id="hero" className="min-h-screen w-full flex items-center justify-center p-6 pt-20">
           <div className="w-full max-w-6xl">
             <SplineSceneBasic />
           </div>
