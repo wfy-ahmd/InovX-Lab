@@ -25,7 +25,7 @@ export const Contact = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-80px' }}
-        variants={containerVariants}
+        variants={staggerContainer}
       >
         {/* Badge */}
         <motion.div variants={fadeUpVariant} className="text-center mb-4">
@@ -62,7 +62,7 @@ export const Contact = () => {
           className="max-w-xl mx-auto p-8 rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm"
         >
           {/* Name */}
-          <motion.div variants={itemVariants} className="mb-5">
+          <motion.div variants={staggerItem} className="mb-5">
             <label
               htmlFor="contact-name"
               className="block text-xs uppercase tracking-[0.2em] text-white/40 font-medium mb-2"
@@ -79,7 +79,7 @@ export const Contact = () => {
           </motion.div>
 
           {/* Email */}
-          <motion.div variants={itemVariants} className="mb-5">
+          <motion.div variants={staggerItem} className="mb-5">
             <label
               htmlFor="contact-email"
               className="block text-xs uppercase tracking-[0.2em] text-white/40 font-medium mb-2"

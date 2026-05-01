@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, X, Send } from 'lucide-react';
+import { X, Send } from 'lucide-react';
 
 const mockMessages = [
   { id: 1, sender: 'bot', text: "Hi 👋 I'm InovX AI. How can I help you today?" },
-  { id: 2, sender: 'user', text: "I need an AI solution for my business" },
-  { id: 3, sender: 'bot', text: "Great! We can help you with automation, analytics, and AI chat systems." },
+  { id: 2, sender: 'user', text: "I need AI automation" },
+  { id: 3, sender: 'bot', text: "Great! We can help you automate workflows and improve efficiency." },
 ];
 
 export const Chatbot = () => {
@@ -61,38 +61,49 @@ export const Chatbot = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            initial={{ opacity: 0, scale: 0.8, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            exit={{ opacity: 0, scale: 0.8, y: 50 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="mb-4 w-80 h-[420px] bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl flex flex-col overflow-hidden shadow-2xl"
+            className="mb-4 w-80 sm:w-[340px] h-[440px] bg-black/80 backdrop-blur-lg border border-white/10 rounded-2xl flex flex-col overflow-hidden shadow-2xl"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/[0.02]">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-white font-medium text-sm">InovX AI</span>
+            <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-white/[0.02]">
+              <div className="flex items-center gap-3">
+                {/* Small Header Robot Icon */}
+                <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-lg">
+                  <div className="w-4 h-2.5 bg-black rounded-full flex items-center justify-center gap-[2px]">
+                    <div className="w-1 h-1 bg-white rounded-full animate-pulse" />
+                    <div className="w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '200ms' }} />
+                  </div>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-white font-semibold text-sm">InovX AI</span>
+                  <span className="text-white/50 text-[10px] flex items-center gap-1 uppercase tracking-wider">
+                    <div className="w-1.5 h-1.5 rounded-full bg-green-500" /> Online
+                  </span>
+                </div>
               </div>
               <button
                 onClick={toggleChat}
                 className="text-white/50 hover:text-white transition-colors"
                 aria-label="Close chat"
               >
-                <X size={18} />
+                <X size={20} />
               </button>
             </div>
 
             {/* Messages Area */}
-            <div className="flex-1 p-4 overflow-y-auto flex flex-col gap-3 scrollbar-hide">
+            <div className="flex-1 p-5 overflow-y-auto flex flex-col gap-4 scrollbar-hide">
               {messages.map((msg) => (
                 <motion.div
                   key={msg.id}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className={`max-w-[85%] rounded-2xl px-4 py-2 text-sm ${
+                  className={`max-w-[75%] rounded-2xl px-4 py-2.5 text-sm ${
                     msg.sender === 'user'
-                      ? 'bg-white/10 text-white self-end rounded-br-sm'
-                      : 'bg-white/[0.05] text-white/90 self-start rounded-bl-sm border border-white/[0.05]'
+                      ? 'bg-white text-black font-medium self-end rounded-br-sm shadow-lg shadow-white/10'
+                      : 'bg-white/10 text-white/90 self-start rounded-bl-sm border border-white/[0.05]'
                   }`}
                 >
                   {msg.text}
@@ -102,25 +113,25 @@ export const Chatbot = () => {
             </div>
 
             {/* Input Area */}
-            <div className="p-3 border-t border-white/10 bg-white/[0.02]">
+            <div className="p-4 border-t border-white/10 bg-white/[0.02]">
               <form
                 onSubmit={handleSend}
-                className="flex items-center gap-2 bg-black/50 border border-white/10 rounded-full px-4 py-2"
+                className="flex items-center gap-2"
               >
                 <input
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Type a message..."
-                  className="flex-1 bg-transparent text-white text-sm focus:outline-none placeholder:text-white/30"
+                  placeholder="Type your message..."
+                  className="flex-1 bg-white/[0.03] border border-white/10 rounded-full px-4 py-2.5 text-white text-sm focus:outline-none focus:border-white/50 focus:bg-white/[0.05] focus:shadow-[0_0_15px_rgba(255,255,255,0.1)] placeholder:text-white/30 transition-all duration-300"
                 />
                 <button
                   type="submit"
                   disabled={!inputValue.trim()}
-                  className="text-white/50 hover:text-white disabled:opacity-50 disabled:hover:text-white/50 transition-colors"
+                  className="w-10 h-10 rounded-full flex items-center justify-center bg-white text-black disabled:opacity-50 disabled:bg-white/10 disabled:text-white/30 transition-colors duration-300 shadow-lg shadow-white/20 disabled:shadow-none"
                   aria-label="Send message"
                 >
-                  <Send size={16} />
+                  <Send size={16} className={inputValue.trim() ? "ml-0.5" : ""} />
                 </button>
               </form>
             </div>
@@ -133,10 +144,18 @@ export const Chatbot = () => {
         onClick={toggleChat}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="w-14 h-14 bg-white text-black rounded-full flex items-center justify-center shadow-lg hover:shadow-white/20 transition-shadow"
+        className="w-16 h-16 bg-white text-black rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.15)] transition-shadow hover:shadow-[0_0_40px_rgba(255,255,255,0.25)]"
         aria-label="Toggle chat"
       >
-        {isOpen ? <X size={24} /> : <Sparkles size={24} fill="currentColor" />}
+        {isOpen ? (
+          <X size={28} />
+        ) : (
+          /* Custom Robot Face */
+          <div className="w-8 h-5 bg-black rounded-full flex items-center justify-center gap-1 shadow-inner">
+            <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-[0_0_8px_white]" />
+            <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-[0_0_8px_white]" style={{ animationDelay: '300ms' }} />
+          </div>
+        )}
       </motion.button>
     </div>
   );
