@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar';
 import { SplineSceneBasic } from './components/SplineSceneBasic';
 import { About } from './components/About';
 import { Services } from './components/Services';
+import { Features } from './components/Features';
 import { Projects } from './components/Projects';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -24,6 +25,9 @@ export function App() {
 
         {/* Services Section */}
         <Services />
+
+        {/* Features Section */}
+        <Features />
 
         {/* Projects Section */}
         <Projects />
