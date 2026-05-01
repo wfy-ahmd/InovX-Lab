@@ -2,32 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Bot, BarChart3, MessageSquare, Database } from 'lucide-react';
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: 'easeOut' },
-  },
-};
-
-const headingVariants = {
-  hidden: { opacity: 0, y: 60 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: 'easeOut' },
-  },
-};
+import { staggerContainer, staggerItem, fadeUpVariant, cardHover } from '../utils/motion';
 
 const services = [
   {
@@ -64,10 +39,10 @@ export const Services = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-80px' }}
-        variants={containerVariants}
+        variants={staggerContainer}
       >
         {/* Badge */}
-        <motion.div variants={headingVariants} className="text-center mb-4">
+        <motion.div variants={fadeUpVariant} className="text-center mb-4">
           <span className="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.03] text-xs uppercase tracking-[0.25em] text-white/50 font-medium">
             What We Do
           </span>
@@ -75,7 +50,7 @@ export const Services = () => {
 
         {/* Heading */}
         <motion.h2
-          variants={headingVariants}
+          variants={fadeUpVariant}
           className="text-4xl md:text-5xl font-bold text-center mb-5"
         >
           <span className="text-white">Our AI</span>{' '}
@@ -86,7 +61,7 @@ export const Services = () => {
 
         {/* Description */}
         <motion.p
-          variants={headingVariants}
+          variants={fadeUpVariant}
           className="text-lg text-white/60 max-w-2xl mx-auto text-center leading-relaxed mb-16"
         >
           We provide intelligent solutions that help businesses automate
@@ -97,18 +72,15 @@ export const Services = () => {
         {/* Cards Grid */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-          variants={containerVariants}
+          variants={staggerContainer}
         >
           {services.map((service) => {
             const Icon = service.icon;
             return (
               <motion.div
                 key={service.title}
-                variants={itemVariants}
-                whileHover={{
-                  scale: 1.05,
-                  transition: { duration: 0.3, ease: 'easeOut' },
-                }}
+                variants={staggerItem}
+                whileHover={cardHover}
                 className="group relative p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm transition-shadow duration-300 hover:border-white/[0.12] hover:shadow-[0_0_30px_-5px_rgba(255,255,255,0.06)]"
               >
                 {/* Icon */}

@@ -68,7 +68,7 @@ export const Navbar = () => {
         </a>
 
         {/* Links — centered */}
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href;
             return (
@@ -76,15 +76,18 @@ export const Navbar = () => {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleClick(e, link.href)}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.2 }}
-                className={`px-3 py-1.5 rounded-lg text-xs font-medium tracking-wide transition-colors duration-200 ${
-                  isActive
-                    ? 'text-white bg-white/[0.08]'
-                    : 'text-white/50 hover:text-white'
+                className={`relative px-3 py-1.5 text-xs font-medium tracking-wide transition-colors duration-200 ${
+                  isActive ? 'text-white' : 'text-white/50 hover:text-white'
                 }`}
               >
                 {link.label}
+                {isActive && (
+                  <motion.div
+                    layoutId="navbar-indicator"
+                    className="absolute left-0 right-0 -bottom-1 h-[2px] bg-white rounded-full"
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  />
+                )}
               </motion.a>
             );
           })}

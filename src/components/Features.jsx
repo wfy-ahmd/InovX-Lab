@@ -25,23 +25,7 @@ const featuresData = [
   },
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: 'easeOut' },
-  },
-};
+import { staggerContainer, staggerItem, cardHover, fadeUpVariant } from '../utils/motion';
 
 export const Features = () => {
   return (
@@ -51,10 +35,10 @@ export const Features = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-100px' }}
-        variants={containerVariants}
+        variants={staggerContainer}
       >
         {/* Header */}
-        <motion.div variants={itemVariants} className="text-center max-w-2xl mx-auto mb-16">
+        <motion.div variants={fadeUpVariant} className="text-center max-w-2xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-6">
             <span className="w-2 h-2 rounded-full bg-white/40" />
             <span className="text-xs font-medium text-white/70 uppercase tracking-widest">
@@ -76,8 +60,8 @@ export const Features = () => {
             return (
               <motion.div
                 key={index}
-                variants={itemVariants}
-                whileHover={{ scale: 1.04 }}
+                variants={staggerItem}
+                whileHover={cardHover}
                 className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-6 text-center transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)]"
               >
                 <div className="w-12 h-12 mx-auto rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center mb-6">
