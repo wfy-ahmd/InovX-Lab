@@ -21,7 +21,7 @@ const itemVariants = {
 
 export const About = () => {
   return (
-    <section className="relative py-24 overflow-hidden bg-black">
+    <section id="about" className="relative py-24 overflow-hidden bg-black">
       {/* Content */}
       <motion.div
         className="relative z-10 max-w-4xl mx-auto px-6 text-center"

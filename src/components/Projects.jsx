@@ -125,7 +125,7 @@ const ProjectCard = ({ project, index }) => {
 
 export const Projects = () => {
   return (
-    <section className="relative py-24 bg-black">
+    <section id="projects" className="relative py-24 bg-black">
       <motion.div
         className="max-w-6xl mx-auto px-6"
         initial="hidden"

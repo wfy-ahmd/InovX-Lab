@@ -58,7 +58,7 @@ const services = [
 
 export const Services = () => {
   return (
-    <section className="relative py-24 bg-black">
+    <section id="services" className="relative py-24 bg-black">
       <motion.div
         className="max-w-6xl mx-auto px-6"
         initial="hidden"

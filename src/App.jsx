@@ -4,6 +4,7 @@ import { About } from './components/About';
 import { Services } from './components/Services';
 import { Projects } from './components/Projects';
 import { Contact } from './components/Contact';
+import { Footer } from './components/Footer';
 
 export function App() {
   return (
@@ -18,7 +19,7 @@ export function App() {
       </div>
 
       <main>
-        <section className="min-h-screen w-full flex items-center justify-center p-6">
+        <section id="hero" className="min-h-screen w-full flex items-center justify-center p-6">
           <div className="w-full max-w-6xl">
             <SplineSceneBasic />
           </div>
@@ -35,6 +36,8 @@ export function App() {
         {/* Contact Section */}
         <Contact />
       </main>
+
+      <Footer />
     </div>
   );
 }

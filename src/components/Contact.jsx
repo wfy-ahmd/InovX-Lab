@@ -39,7 +39,7 @@ export const Contact = () => {
   };
 
   return (
-    <section className="relative py-24 bg-black">
+    <section id="contact" className="relative py-24 bg-black">
       {/* Subtle background glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-white/[0.02] blur-[120px] rounded-full" />
