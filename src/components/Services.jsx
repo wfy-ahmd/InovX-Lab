@@ -95,7 +95,7 @@ const SpotlightCard = ({ image, title, description, index }) => {
             <h3 className="text-lg font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-white">
               {title}
             </h3>
-            <p className="text-sm text-white/40 leading-relaxed transition-colors duration-300 group-hover:text-white/60">
+            <p className="text-sm text-white/40 leading-relaxed transition-colors duration-300 group-hover:text-white/60 line-clamp-3 min-h-[4.5rem]">
               {description}
             </p>
           </div>
