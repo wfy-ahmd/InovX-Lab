@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Rocket, Users } from "lucide-react";
+import { Brain, LineChart, MessageSquare, BarChart3, Settings, Lock } from "lucide-react";
 import { cn } from "../../lib/utils";
 import { GooeyText } from "./gooey-text-morphing";
 
@@ -427,24 +427,69 @@ export function CinematicAbout({
                   </div>
                 </div>
 
-                {/* Floating Value Badges */}
-                <div className="floating-badge absolute flex top-6 lg:top-12 left-[-15px] lg:left-[-80px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 lg:gap-4 z-30">
+                {/* Badge 1: Intelligent Automation */}
+                <div className="floating-badge absolute flex top-0 lg:top-[-40px] left-[-30px] lg:left-[-120px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 lg:gap-4 z-30">
                   <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
-                    {badge1Icon}
+                    <Brain className="w-4 h-4 lg:w-5 lg:h-5 text-white/80" />
                   </div>
                   <div>
-                    <p className="text-white text-xs lg:text-sm font-bold tracking-tight">{badge1Title}</p>
-                    <p className="text-neutral-400 text-[10px] lg:text-xs font-medium">{badge1Desc}</p>
+                    <p className="text-white text-xs lg:text-sm font-bold tracking-tight">Intelligent Automation</p>
+                    <p className="text-neutral-400 text-[10px] lg:text-xs font-medium">Automate repetitive workflows</p>
                   </div>
                 </div>
 
-                <div className="floating-badge absolute flex bottom-12 lg:bottom-20 right-[-15px] lg:right-[-80px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 lg:gap-4 z-30">
+                {/* Badge 2: Predictive Analytics */}
+                <div className="floating-badge absolute flex top-0 lg:top-[-40px] right-[-30px] lg:right-[-120px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 lg:gap-4 z-30">
                   <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
-                    {badge2Icon}
+                    <LineChart className="w-4 h-4 lg:w-5 lg:h-5 text-white/80" />
                   </div>
                   <div>
-                    <p className="text-white text-xs lg:text-sm font-bold tracking-tight">{badge2Title}</p>
-                    <p className="text-neutral-400 text-[10px] lg:text-xs font-medium">{badge2Desc}</p>
+                    <p className="text-white text-xs lg:text-sm font-bold tracking-tight">Predictive Analytics</p>
+                    <p className="text-neutral-400 text-[10px] lg:text-xs font-medium">Forecast trends & insights</p>
+                  </div>
+                </div>
+
+                {/* Badge 3: AI Chat Systems */}
+                <div className="floating-badge absolute flex top-1/2 -translate-y-1/2 left-[-40px] lg:left-[-150px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 lg:gap-4 z-30">
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
+                    <MessageSquare className="w-4 h-4 lg:w-5 lg:h-5 text-white/80" />
+                  </div>
+                  <div>
+                    <p className="text-white text-xs lg:text-sm font-bold tracking-tight">AI Chat Systems</p>
+                    <p className="text-neutral-400 text-[10px] lg:text-xs font-medium">Smart conversational assistants</p>
+                  </div>
+                </div>
+
+                {/* Badge 4: Data Intelligence */}
+                <div className="floating-badge absolute flex top-1/2 -translate-y-1/2 right-[-40px] lg:right-[-150px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 lg:gap-4 z-30">
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
+                    <BarChart3 className="w-4 h-4 lg:w-5 lg:h-5 text-white/80" />
+                  </div>
+                  <div>
+                    <p className="text-white text-xs lg:text-sm font-bold tracking-tight">Data Intelligence</p>
+                    <p className="text-neutral-400 text-[10px] lg:text-xs font-medium">Real-time actionable insights</p>
+                  </div>
+                </div>
+
+                {/* Badge 5: Scalable Digital Solutions */}
+                <div className="floating-badge absolute flex bottom-0 lg:bottom-[-40px] left-[-30px] lg:left-[-120px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 lg:gap-4 z-30">
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
+                    <Settings className="w-4 h-4 lg:w-5 lg:h-5 text-white/80" />
+                  </div>
+                  <div>
+                    <p className="text-white text-xs lg:text-sm font-bold tracking-tight">Scalable Solutions</p>
+                    <p className="text-neutral-400 text-[10px] lg:text-xs font-medium">Reliable systems that grow</p>
+                  </div>
+                </div>
+
+                {/* Badge 6: Secure Architecture */}
+                <div className="floating-badge absolute flex bottom-0 lg:bottom-[-40px] right-[-30px] lg:right-[-120px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 lg:gap-4 z-30">
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
+                    <Lock className="w-4 h-4 lg:w-5 lg:h-5 text-white/80" />
+                  </div>
+                  <div>
+                    <p className="text-white text-xs lg:text-sm font-bold tracking-tight">Secure Architecture</p>
+                    <p className="text-neutral-400 text-[10px] lg:text-xs font-medium">Robust data protection</p>
                   </div>
                 </div>
 
@@ -456,8 +501,8 @@ export function CinematicAbout({
               <h3 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-0 lg:mb-5 tracking-tight">
                 {cardHeading}
               </h3>
-              <p className="hidden md:block text-neutral-400 text-sm md:text-base lg:text-lg font-normal leading-relaxed mx-auto lg:mx-0 max-w-sm lg:max-w-none">
-                {cardDescription}
+              <p className="hidden md:block text-white/60 text-sm md:text-base lg:text-lg font-normal leading-relaxed mx-auto lg:mx-0 max-w-md">
+                AI solutions built to automate, optimize, and scale.
               </p>
             </div>
 
