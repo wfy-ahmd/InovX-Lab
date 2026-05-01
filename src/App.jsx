@@ -6,6 +6,7 @@ import { Services } from './components/Services';
 import { Projects } from './components/Projects';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { Chatbot } from './components/Chatbot';
 
 export function App() {
   return (
@@ -32,6 +33,7 @@ export function App() {
       </main>
 
       <Footer />
+      <Chatbot />
     </div>
   );
 }
