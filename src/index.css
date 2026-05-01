@@ -7,6 +7,17 @@
 
 /* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
 
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #ffffff;
+  --secondary: #888888;
+  --destructive: #ff0000;
+  --muted: #222222;
+  --muted-foreground: #888888;
+  --border: rgba(255, 255, 255, 0.1);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -38,4 +49,20 @@ body {
 ::selection {
   background: rgba(255, 255, 255, 0.2);
   color: #ffffff;
+}
+
+/* Shooting Star Border */
+@keyframes border-spin {
+  0% {
+    --border-angle: 0deg;
+  }
+  100% {
+    --border-angle: 360deg;
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
 }

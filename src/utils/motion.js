@@ -21,6 +21,29 @@ export const staggerContainer = {
   },
 };
 
+export const projectCardContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+export const projectCardItem = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut',
+    },
+  },
+};
+
 export const staggerItem = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -63,4 +86,10 @@ export const cardHover = {
   boxShadow: '0px 0px 30px rgba(255, 255, 255, 0.05)',
   borderColor: 'rgba(255, 255, 255, 0.2)',
   transition: { duration: 0.3, ease: 'easeOut' },
+};
+
+export const projectCardHover = {
+  scale: 1.04,
+  y: -4,
+  transition: { duration: 0.2, ease: 'easeOut' },
 };

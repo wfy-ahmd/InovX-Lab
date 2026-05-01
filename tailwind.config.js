@@ -6,6 +6,15 @@ export default {
 ],
   theme: {
     extend: {
+      colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        primary: { DEFAULT: "var(--primary)" },
+        secondary: { DEFAULT: "var(--secondary)" },
+        destructive: { DEFAULT: "var(--destructive)" },
+        muted: { DEFAULT: "var(--muted)", foreground: "var(--muted-foreground)" },
+        border: "var(--border)",
+      },
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",
       },
