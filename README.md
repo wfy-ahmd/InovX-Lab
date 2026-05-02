@@ -399,7 +399,7 @@ npm run lint
 
 
 
-**[Live Demo](https://inovx-lab.vercel.app)** *(Coming Soon)*
+**[Live Demo](https://inov-x-lab.vercel.app/)** *(Coming Soon)*
 
 
 
